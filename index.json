@@ -205,6 +205,177 @@
         "classical"
       ],
       "version": 1
+    },
+    {
+      "id": "hot-cross-buns",
+      "file": "hot-cross-buns.json",
+      "title": {
+        "en": "Hot Cross Buns",
+        "sr": "Vruće zemičke"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "london-bridge",
+      "file": "london-bridge.json",
+      "title": {
+        "en": "London Bridge Is Falling Down",
+        "sr": "Londonski most se ruši"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "yankee-doodle",
+      "file": "yankee-doodle.json",
+      "title": {
+        "en": "Yankee Doodle",
+        "sr": "Jenki Dudl"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "folk"
+      ],
+      "version": 1
+    },
+    {
+      "id": "pop-goes-the-weasel",
+      "file": "pop-goes-the-weasel.json",
+      "title": {
+        "en": "Pop! Goes the Weasel",
+        "sr": "Pop! ode lasica"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids"
+      ],
+      "version": 1
+    },
+    {
+      "id": "clementine",
+      "file": "clementine.json",
+      "title": {
+        "en": "Oh My Darling, Clementine",
+        "sr": "Oj, draga moja Klementina"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "folk",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "my-bonnie",
+      "file": "my-bonnie.json",
+      "title": {
+        "en": "My Bonnie Lies over the Ocean",
+        "sr": "Moja Boni je preko okeana"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "folk"
+      ],
+      "version": 1
+    },
+    {
+      "id": "auld-lang-syne",
+      "file": "auld-lang-syne.json",
+      "title": {
+        "en": "Auld Lang Syne",
+        "sr": "Za stara dobra vremena"
+      },
+      "artist": "Robert Burns (words), traditional melody",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "folk",
+        "holidays"
+      ],
+      "version": 1
+    },
+    {
+      "id": "we-wish-you-a-merry-christmas",
+      "file": "we-wish-you-a-merry-christmas.json",
+      "title": {
+        "en": "We Wish You a Merry Christmas",
+        "sr": "Želimo vam srećan Božić"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "holidays",
+        "kids"
+      ],
+      "version": 1
+    },
+    {
+      "id": "drunken-sailor",
+      "file": "drunken-sailor.json",
+      "title": {
+        "en": "Drunken Sailor",
+        "sr": "Pijani mornar"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "folk"
+      ],
+      "version": 1
+    },
+    {
+      "id": "minuet-in-g",
+      "file": "minuet-in-g.json",
+      "title": {
+        "en": "Minuet in G",
+        "sr": "Menuet u G-duru"
+      },
+      "artist": "Christian Petzold",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "classical"
+      ],
+      "version": 1
+    },
+    {
+      "id": "hall-of-the-mountain-king",
+      "file": "hall-of-the-mountain-king.json",
+      "title": {
+        "en": "In the Hall of the Mountain King",
+        "sr": "U dvorani planinskog kralja"
+      },
+      "artist": "Edvard Grieg",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "classical"
+      ],
+      "version": 1
     }
   ]
 }

@@ -1,0 +1,90 @@
+{
+  "id": "clementine",
+  "title": {
+    "en": "Oh My Darling, Clementine",
+    "sr": "Oj, draga moja Klementina"
+  },
+  "artist": "Traditional",
+  "license": "public-domain",
+  "source": "Traditional American folk ballad (1884)",
+  "language": "instrumental",
+  "difficulty": "easy",
+  "tags": [
+    "folk",
+    "beginner"
+  ],
+  "tempo": 100,
+  "timeSignature": [
+    3,
+    4
+  ],
+  "beatsPerBar": 3,
+  "tuning": [
+    "E2",
+    "A2",
+    "D3",
+    "G3",
+    "B3",
+    "E4"
+  ],
+  "capo": 0,
+  "tracks": {
+    "full": [
+      {"beat": 0.0, "string": 5, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 0.75, "string": 5, "fret": 3, "finger": 3, "length": 0.25},
+      {"beat": 1.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 2.0, "string": 6, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 3.0, "string": 4, "fret": 2, "finger": 2, "length": 0.75},
+      {"beat": 3.75, "string": 4, "fret": 2, "finger": 2, "length": 0.25},
+      {"beat": 4.0, "string": 4, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 5.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 6.0, "string": 5, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 6.75, "string": 4, "fret": 2, "finger": 2, "length": 0.25},
+      {"beat": 7.0, "string": 3, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 8.0, "string": 3, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 9.0, "string": 4, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 9.75, "string": 4, "fret": 2, "finger": 2, "length": 0.25},
+      {"beat": 10.0, "string": 4, "fret": 0, "finger": 0, "length": 2.0},
+      {"beat": 12.0, "string": 4, "fret": 0, "finger": 0, "length": 0.75},
+      {"beat": 12.75, "string": 4, "fret": 2, "finger": 2, "length": 0.25},
+      {"beat": 13.0, "string": 4, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 14.0, "string": 4, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 15.0, "string": 4, "fret": 2, "finger": 2, "length": 0.75},
+      {"beat": 15.75, "string": 4, "fret": 0, "finger": 0, "length": 0.25},
+      {"beat": 16.0, "string": 4, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 17.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 18.0, "string": 5, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 18.75, "string": 4, "fret": 2, "finger": 2, "length": 0.25},
+      {"beat": 19.0, "string": 4, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 20.0, "string": 6, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 21.0, "string": 5, "fret": 2, "finger": 2, "length": 0.75},
+      {"beat": 21.75, "string": 4, "fret": 0, "finger": 0, "length": 0.25},
+      {"beat": 22.0, "string": 5, "fret": 3, "finger": 3, "length": 2.0}
+    ],
+    "easy": [
+      {"beat": 1.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 2.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 3.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 4.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 5.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 6.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 7.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 8.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 9.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 10.0, "chord": "G7", "strum": "up", "length": 1.0},
+      {"beat": 11.0, "chord": "G7", "strum": "down", "length": 1.0},
+      {"beat": 12.0, "chord": "G7", "strum": "down", "length": 1.0},
+      {"beat": 13.0, "chord": "G7", "strum": "up", "length": 1.0},
+      {"beat": 14.0, "chord": "G7", "strum": "down", "length": 1.0},
+      {"beat": 15.0, "chord": "G7", "strum": "down", "length": 1.0},
+      {"beat": 16.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 17.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 18.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 19.0, "chord": "G7", "strum": "up", "length": 1.0},
+      {"beat": 20.0, "chord": "G7", "strum": "down", "length": 1.0},
+      {"beat": 21.0, "chord": "G7", "strum": "down", "length": 1.0},
+      {"beat": 22.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 23.0, "chord": "C", "strum": "down", "length": 1.0}
+    ]
+  }
+}
