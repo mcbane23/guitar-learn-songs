@@ -1,0 +1,89 @@
+{
+  "id": "happy-birthday",
+  "title": {
+    "en": "Happy Birthday to You",
+    "sr": "Srećan rođendan"
+  },
+  "artist": "Mildred J. Hill and Patty Hill",
+  "license": "public-domain",
+  "source": "'Good Morning to All' (1893); public domain",
+  "language": "instrumental",
+  "difficulty": "easy",
+  "tags": [
+    "kids",
+    "beginner"
+  ],
+  "tempo": 110,
+  "timeSignature": [
+    3,
+    4
+  ],
+  "beatsPerBar": 3,
+  "tuning": [
+    "E2",
+    "A2",
+    "D3",
+    "G3",
+    "B3",
+    "E4"
+  ],
+  "capo": 0,
+  "tracks": {
+    "full": [
+      {"beat": 2.0, "string": 6, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 2.75, "string": 6, "fret": 3, "finger": 3, "length": 0.25},
+      {"beat": 3.0, "string": 5, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 4.0, "string": 6, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 5.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 6.0, "string": 5, "fret": 2, "finger": 2, "length": 2.0},
+      {"beat": 8.0, "string": 6, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 8.75, "string": 6, "fret": 3, "finger": 3, "length": 0.25},
+      {"beat": 9.0, "string": 5, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 10.0, "string": 6, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 11.0, "string": 4, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 12.0, "string": 5, "fret": 3, "finger": 3, "length": 2.0},
+      {"beat": 14.0, "string": 6, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 14.75, "string": 6, "fret": 3, "finger": 3, "length": 0.25},
+      {"beat": 15.0, "string": 3, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 16.0, "string": 4, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 17.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 18.0, "string": 5, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 19.0, "string": 5, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 20.0, "string": 4, "fret": 3, "finger": 3, "length": 0.75},
+      {"beat": 20.75, "string": 4, "fret": 3, "finger": 3, "length": 0.25},
+      {"beat": 21.0, "string": 4, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 22.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 23.0, "string": 4, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 24.0, "string": 5, "fret": 3, "finger": 3, "length": 2.0}
+    ],
+    "easy": [
+      {"beat": 0.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 1.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 2.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 3.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 4.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 5.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 6.0, "chord": "G", "strum": "down", "length": 1.0},
+      {"beat": 7.0, "chord": "G", "strum": "up", "length": 1.0},
+      {"beat": 8.0, "chord": "G", "strum": "down", "length": 1.0},
+      {"beat": 9.0, "chord": "G", "strum": "down", "length": 1.0},
+      {"beat": 10.0, "chord": "G", "strum": "up", "length": 1.0},
+      {"beat": 11.0, "chord": "G", "strum": "down", "length": 1.0},
+      {"beat": 12.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 13.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 14.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 15.0, "chord": "C7", "strum": "down", "length": 1.0},
+      {"beat": 16.0, "chord": "C7", "strum": "up", "length": 1.0},
+      {"beat": 17.0, "chord": "C7", "strum": "down", "length": 1.0},
+      {"beat": 18.0, "chord": "F", "strum": "down", "length": 1.0},
+      {"beat": 19.0, "chord": "F", "strum": "up", "length": 1.0},
+      {"beat": 20.0, "chord": "F", "strum": "down", "length": 1.0},
+      {"beat": 21.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 22.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 23.0, "chord": "G", "strum": "down", "length": 1.0},
+      {"beat": 24.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 25.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 26.0, "chord": "C", "strum": "down", "length": 1.0}
+    ]
+  }
+}

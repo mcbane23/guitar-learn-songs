@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "songs": [
+    {
+      "id": "twinkle-twinkle",
+      "file": "twinkle-twinkle.json",
+      "title": {
+        "en": "Twinkle, Twinkle, Little Star",
+        "sr": "Sijaj, sijaj, zvezdice"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "mary-had-a-little-lamb",
+      "file": "mary-had-a-little-lamb.json",
+      "title": {
+        "en": "Mary Had a Little Lamb",
+        "sr": "Meri je imala jagnje"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "ode-to-joy",
+      "file": "ode-to-joy.json",
+      "title": {
+        "en": "Ode to Joy",
+        "sr": "Oda radosti"
+      },
+      "artist": "Ludwig van Beethoven",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "classical",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "frere-jacques",
+      "file": "frere-jacques.json",
+      "title": {
+        "en": "Frère Jacques (Are You Sleeping?)",
+        "sr": "Bratec Martin"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "happy-birthday",
+      "file": "happy-birthday.json",
+      "title": {
+        "en": "Happy Birthday to You",
+        "sr": "Srećan rođendan"
+      },
+      "artist": "Mildred J. Hill and Patty Hill",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "row-your-boat",
+      "file": "row-your-boat.json",
+      "title": {
+        "en": "Row, Row, Row Your Boat",
+        "sr": "Veslaj, veslaj čamcem"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "old-macdonald",
+      "file": "old-macdonald.json",
+      "title": {
+        "en": "Old MacDonald Had a Farm",
+        "sr": "Stari Mekdonald ima farmu"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "jingle-bells",
+      "file": "jingle-bells.json",
+      "title": {
+        "en": "Jingle Bells",
+        "sr": "Zvončići"
+      },
+      "artist": "James Lord Pierpont",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "holidays",
+        "kids"
+      ],
+      "version": 1
+    },
+    {
+      "id": "when-the-saints",
+      "file": "when-the-saints.json",
+      "title": {
+        "en": "When the Saints Go Marching In",
+        "sr": "Kad sveci krenu u marš"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "folk",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "amazing-grace",
+      "file": "amazing-grace.json",
+      "title": {
+        "en": "Amazing Grace",
+        "sr": "Čudesna milost"
+      },
+      "artist": "John Newton (words), traditional melody 'New Britain'",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "folk"
+      ],
+      "version": 1
+    },
+    {
+      "id": "silent-night",
+      "file": "silent-night.json",
+      "title": {
+        "en": "Silent Night",
+        "sr": "Tiha noć"
+      },
+      "artist": "Franz Xaver Gruber",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "holidays"
+      ],
+      "version": 1
+    },
+    {
+      "id": "greensleeves",
+      "file": "greensleeves.json",
+      "title": {
+        "en": "Greensleeves",
+        "sr": "Grinslivs (Zeleni rukavi)"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "classical",
+        "folk"
+      ],
+      "version": 1
+    },
+    {
+      "id": "fur-elise",
+      "file": "fur-elise.json",
+      "title": {
+        "en": "Für Elise (theme)",
+        "sr": "Za Elizu (tema)"
+      },
+      "artist": "Ludwig van Beethoven",
+      "language": "instrumental",
+      "difficulty": "hard",
+      "tags": [
+        "classical"
+      ],
+      "version": 1
+    }
+  ]
+}

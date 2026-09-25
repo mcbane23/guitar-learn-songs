@@ -1,0 +1,80 @@
+{
+  "id": "row-your-boat",
+  "title": {
+    "en": "Row, Row, Row Your Boat",
+    "sr": "Veslaj, veslaj čamcem"
+  },
+  "artist": "Traditional",
+  "license": "public-domain",
+  "source": "Traditional nursery song (1852)",
+  "language": "instrumental",
+  "difficulty": "easy",
+  "tags": [
+    "kids",
+    "beginner"
+  ],
+  "tempo": 60,
+  "timeSignature": [
+    6,
+    8
+  ],
+  "beatsPerBar": 2,
+  "tuning": [
+    "E2",
+    "A2",
+    "D3",
+    "G3",
+    "B3",
+    "E4"
+  ],
+  "capo": 0,
+  "tracks": {
+    "full": [
+      {"beat": 0.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 1.0, "string": 5, "fret": 3, "finger": 3, "length": 1.0},
+      {"beat": 2.0, "string": 5, "fret": 3, "finger": 3, "length": 0.6667},
+      {"beat": 2.6667, "string": 4, "fret": 0, "finger": 0, "length": 0.3333},
+      {"beat": 3.0, "string": 4, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 4.0, "string": 4, "fret": 2, "finger": 2, "length": 0.6667},
+      {"beat": 4.6667, "string": 4, "fret": 0, "finger": 0, "length": 0.3333},
+      {"beat": 5.0, "string": 4, "fret": 2, "finger": 2, "length": 0.6667},
+      {"beat": 5.6667, "string": 4, "fret": 3, "finger": 3, "length": 0.3333},
+      {"beat": 6.0, "string": 3, "fret": 0, "finger": 0, "length": 2.0},
+      {"beat": 8.0, "string": 2, "fret": 1, "finger": 1, "length": 0.3333},
+      {"beat": 8.3333, "string": 2, "fret": 1, "finger": 1, "length": 0.3333},
+      {"beat": 8.6667, "string": 2, "fret": 1, "finger": 1, "length": 0.3333},
+      {"beat": 9.0, "string": 3, "fret": 0, "finger": 0, "length": 0.3333},
+      {"beat": 9.3333, "string": 3, "fret": 0, "finger": 0, "length": 0.3333},
+      {"beat": 9.6667, "string": 3, "fret": 0, "finger": 0, "length": 0.3333},
+      {"beat": 10.0, "string": 4, "fret": 2, "finger": 2, "length": 0.3333},
+      {"beat": 10.3333, "string": 4, "fret": 2, "finger": 2, "length": 0.3333},
+      {"beat": 10.6667, "string": 4, "fret": 2, "finger": 2, "length": 0.3333},
+      {"beat": 11.0, "string": 5, "fret": 3, "finger": 3, "length": 0.3333},
+      {"beat": 11.3333, "string": 5, "fret": 3, "finger": 3, "length": 0.3333},
+      {"beat": 11.6667, "string": 5, "fret": 3, "finger": 3, "length": 0.3333},
+      {"beat": 12.0, "string": 3, "fret": 0, "finger": 0, "length": 0.6667},
+      {"beat": 12.6667, "string": 4, "fret": 3, "finger": 3, "length": 0.3333},
+      {"beat": 13.0, "string": 4, "fret": 2, "finger": 2, "length": 0.6667},
+      {"beat": 13.6667, "string": 4, "fret": 0, "finger": 0, "length": 0.3333},
+      {"beat": 14.0, "string": 5, "fret": 3, "finger": 3, "length": 2.0}
+    ],
+    "easy": [
+      {"beat": 0.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 1.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 2.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 3.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 4.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 5.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 6.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 7.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 8.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 9.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 10.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 11.0, "chord": "C", "strum": "up", "length": 1.0},
+      {"beat": 12.0, "chord": "G", "strum": "down", "length": 1.0},
+      {"beat": 13.0, "chord": "G", "strum": "up", "length": 1.0},
+      {"beat": 14.0, "chord": "C", "strum": "down", "length": 1.0},
+      {"beat": 15.0, "chord": "C", "strum": "up", "length": 1.0}
+    ]
+  }
+}

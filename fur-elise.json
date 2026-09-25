@@ -1,0 +1,80 @@
+{
+  "id": "fur-elise",
+  "title": {
+    "en": "Für Elise (theme)",
+    "sr": "Za Elizu (tema)"
+  },
+  "artist": "Ludwig van Beethoven",
+  "license": "public-domain",
+  "source": "Bagatelle No. 25 in A minor (1810), opening theme",
+  "language": "instrumental",
+  "difficulty": "hard",
+  "tags": [
+    "classical"
+  ],
+  "tempo": 110,
+  "timeSignature": [
+    3,
+    8
+  ],
+  "beatsPerBar": 3,
+  "tuning": [
+    "E2",
+    "A2",
+    "D3",
+    "G3",
+    "B3",
+    "E4"
+  ],
+  "capo": 0,
+  "tracks": {
+    "full": [
+      {"beat": 2.0, "string": 1, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 2.5, "string": 2, "fret": 4, "finger": 4, "length": 0.5},
+      {"beat": 3.0, "string": 1, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 3.5, "string": 2, "fret": 4, "finger": 4, "length": 0.5},
+      {"beat": 4.0, "string": 1, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 4.5, "string": 2, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 5.0, "string": 2, "fret": 3, "finger": 3, "length": 0.5},
+      {"beat": 5.5, "string": 2, "fret": 1, "finger": 1, "length": 0.5},
+      {"beat": 6.0, "string": 3, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 7.5, "string": 5, "fret": 3, "finger": 3, "length": 0.5},
+      {"beat": 8.0, "string": 4, "fret": 2, "finger": 2, "length": 0.5},
+      {"beat": 8.5, "string": 3, "fret": 2, "finger": 2, "length": 0.5},
+      {"beat": 9.0, "string": 2, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 10.5, "string": 4, "fret": 2, "finger": 2, "length": 0.5},
+      {"beat": 11.0, "string": 3, "fret": 1, "finger": 1, "length": 0.5},
+      {"beat": 11.5, "string": 2, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 12.0, "string": 2, "fret": 1, "finger": 1, "length": 1.0},
+      {"beat": 13.5, "string": 4, "fret": 2, "finger": 2, "length": 0.5},
+      {"beat": 14.0, "string": 1, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 14.5, "string": 2, "fret": 4, "finger": 4, "length": 0.5},
+      {"beat": 15.0, "string": 1, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 15.5, "string": 2, "fret": 4, "finger": 4, "length": 0.5},
+      {"beat": 16.0, "string": 1, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 16.5, "string": 2, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 17.0, "string": 2, "fret": 3, "finger": 3, "length": 0.5},
+      {"beat": 17.5, "string": 2, "fret": 1, "finger": 1, "length": 0.5},
+      {"beat": 18.0, "string": 3, "fret": 2, "finger": 2, "length": 1.0},
+      {"beat": 19.5, "string": 5, "fret": 3, "finger": 3, "length": 0.5},
+      {"beat": 20.0, "string": 4, "fret": 2, "finger": 2, "length": 0.5},
+      {"beat": 20.5, "string": 3, "fret": 2, "finger": 2, "length": 0.5},
+      {"beat": 21.0, "string": 2, "fret": 0, "finger": 0, "length": 1.0},
+      {"beat": 22.5, "string": 4, "fret": 2, "finger": 2, "length": 0.5},
+      {"beat": 23.0, "string": 2, "fret": 1, "finger": 1, "length": 0.5},
+      {"beat": 23.5, "string": 2, "fret": 0, "finger": 0, "length": 0.5},
+      {"beat": 24.0, "string": 3, "fret": 2, "finger": 2, "length": 3.0}
+    ],
+    "easy": [
+      {"beat": 0.0, "chord": "Am", "strum": "down", "length": 3.0},
+      {"beat": 3.0, "chord": "Am", "strum": "down", "length": 3.0},
+      {"beat": 6.0, "chord": "Am", "strum": "down", "length": 3.0},
+      {"beat": 9.0, "chord": "E", "strum": "down", "length": 3.0},
+      {"beat": 12.0, "chord": "Am", "strum": "down", "length": 3.0},
+      {"beat": 15.0, "chord": "Am", "strum": "down", "length": 3.0},
+      {"beat": 18.0, "chord": "Am", "strum": "down", "length": 3.0},
+      {"beat": 21.0, "chord": "E", "strum": "down", "length": 3.0},
+      {"beat": 24.0, "chord": "Am", "strum": "down", "length": 3.0}
+    ]
+  }
+}
