@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "songs": [
+    {
+      "id": "enter-sandman",
+      "file": "enter-sandman.json",
+      "title": {
+        "en": "Enter Sandman",
+        "sr": "Enter Sandman"
+      },
+      "artist": "Metallica",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [],
+      "version": 1,
+      "importedFrom": "import/extra/metallica-enter_sandman.gp3"
+    },
+    {
+      "id": "nothing-else-matters",
+      "file": "nothing-else-matters.json",
+      "title": {
+        "en": "Nothing Else Matters",
+        "sr": "Nothing Else Matters"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "hard",
+      "tags": [],
+      "version": 1,
+      "importedFrom": "import/extra/metallica-nothing_else_matters.gp3"
+    }
+  ]
+}
