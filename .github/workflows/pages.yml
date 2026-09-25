@@ -84,6 +84,12 @@ jobs:
         run: |
           mkdir -p site
           cp *.json index.html .nojekyll site/
+          # Songs that are not public domain: a separate catalog the app
+          # only reads when someone adds .../extra/ as a song source.
+          if [ -f extra/index.json ]; then
+            mkdir -p site/extra
+            cp extra/*.json chords.json site/extra/
+          fi
 
       - uses: actions/configure-pages@v5
         with:

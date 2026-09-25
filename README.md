@@ -32,15 +32,27 @@ What the importer does:
   the tab. Scores without tab get the easiest positions. Fingers come from the
   file when it has them, otherwise one finger per fret. The app shows frets
   0-12, so higher notes are moved down the neck or left out (with a warning).
-- **Easy track**: one strum per beat. Chord names in the score are used when
-  the app has a shape for them (`D/F#` becomes `D`, `G9` becomes `G7`, and so
-  on). Otherwise the chords are guessed from the notes, using chords that fit
-  the song's key.
+- **Easy track** (chord mode): one strum per beat, made only when the score
+  names its chords. Names are mapped to shapes the app has (`D/F#` becomes `D`,
+  `G9` becomes `G7`, and so on). A file without chord names gets no chord mode
+  in the app; set `"guessChords": true` to have the chords guessed from the
+  notes instead (check them, guesses are often wrong).
 - Repeats and 1st/2nd endings are played out, empty bars at the start are
   dropped and a pickup bar lines up with the bar lines.
 - The guitar track is the first 6-string track (Guitar Pro) or the part with
   tab or "guitar" in its name (MusicXML); set `track` to choose another.
 - Difficulty is estimated from how fast the notes go and how high they are.
+
+### Songs that are not public domain
+
+Put those files in `import/extra/` instead. They go to a separate catalog in
+`extra/`, published at https://mcbane23.github.io/guitar-learn-songs/extra/,
+which the app does not load by default. To see them, add that link in the
+app under **Settings > Song sources**. Note that this repository and its site
+are public, so anyone can still download these files.
+
+Deleting a score file (or moving it to the other folder) removes its song on
+the next push.
 
 ### The optional .json file
 
@@ -66,6 +78,7 @@ optional:
 - `difficulty`: `easy`, `medium` or `hard`, if the estimate is wrong.
 - `track`: which track or part to use, counting from 1.
 - `tempo`: beats per minute, if the score has none or it is wrong.
+- `guessChords`: `true` to guess chords from the notes when the file has no chord names.
 - `replace`: `true` lets an imported song overwrite a hand-made song with the same id.
 
 To check an import on your own computer: `pip install pyguitarpro==0.11`, then
