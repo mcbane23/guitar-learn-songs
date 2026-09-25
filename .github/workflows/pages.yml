@@ -1,43 +1,84 @@
-# Publishes the song files to GitHub Pages on every push to main.
-# The Guitar Learn app downloads index.json and the song files from
+# Imports any Guitar Pro or MusicXML files in import/, then publishes the song
+# files to GitHub Pages on every push to main. The Guitar Learn app downloads
+# index.json and the song files from
 # https://mcbane23.github.io/guitar-learn-songs/
 name: Publish songs
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: pages
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  # On pull requests: try the import and check the result, without saving
+  # or publishing anything.
+  check:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyguitarpro==0.11
+      - name: Test the importer
+        run: python3 tools/test_import_songs.py
+      - name: Import songs
+        id: import
+        run: python3 tools/import_songs.py
+      - name: Check song files
+        run: python3 tools/check_songs.py
+      - name: Fail if a file could not be imported
+        if: steps.import.outputs.failed != '0'
+        run: |
+          echo "::error::Some files in import/ could not be imported; see the job summary."
+          exit 1
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # to save the imported song files
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyguitarpro==0.11
+
+      - name: Import songs
+        id: import
+        run: python3 tools/import_songs.py
 
       - name: Check song files
+        run: python3 tools/check_songs.py
+
+      # A push made with the workflow's token does not start this workflow
+      # again, so the new songs are published by the steps below.
+      - name: Save imported songs
         run: |
-          python3 - <<'PY'
-          import json, os
-          index = json.load(open("index.json"))
-          json.load(open("chords.json"))
-          for s in index["songs"]:
-              song = json.load(open(s["file"]))
-              assert song["id"] == s["id"], s["file"]
-              assert song["tracks"]["full"] or song["tracks"]["easy"], s["file"]
-          print(f"{len(index['songs'])} songs OK")
-          PY
+          if [ -z "$(git status --porcelain -- '*.json')" ]; then
+            echo "Nothing new to save."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- '*.json'
+          git commit -m "Import songs from import/"
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Build site
         run: |
@@ -52,3 +93,9 @@ jobs:
           path: site
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Fail if a file could not be imported
+        if: steps.import.outputs.failed != '0'
+        run: |
+          echo "::error::Some files in import/ could not be imported; see the job summary."
+          exit 1
