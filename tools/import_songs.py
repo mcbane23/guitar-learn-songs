@@ -93,7 +93,7 @@ class Score:
 
 # ---------------------------------------------------------------- Guitar Pro
 
-def read_guitar_pro(path, track_no):
+def read_guitar_pro(path, track_no, fill_gaps=True):
     try:
         import guitarpro
     except ImportError:
@@ -129,7 +129,20 @@ def read_guitar_pro(path, track_no):
 
     origin = track.measures[0].header.start if track.measures else 0
     q = 960.0  # ticks per quarter note
-    for m in track.measures:
+    # Bars where the chosen guitar is silent (an intro or a solo played by
+    # another guitar) are filled from the other guitars, busiest first, so
+    # the song has no long empty stretches.
+    others = []
+    if fill_gaps:
+        others = sorted(
+            (t for t in song.tracks
+             if t is not track and not t.isPercussionTrack and len(t.strings) == 6
+             and not re.search(r"voice|vocal|voc|bass|drum|perc", t.name, re.I)
+             and [x.value for x in sorted(t.strings, key=lambda x: x.number)] == score.tuning
+             and (t.offset or 0) == score.capo),
+            key=_gp_note_count, reverse=True)
+    filled = {}
+    for i, m in enumerate(track.measures):
         h = m.header
         ts = h.timeSignature
         meas = Measure(start=(h.start - origin) / q, length=h.length / q,
@@ -137,28 +150,43 @@ def read_guitar_pro(path, track_no):
                        repeat_open=h.isRepeatOpen,
                        repeat_times=h.repeatClose + 1 if h.repeatClose > 0 else 0,
                        endings={i + 1 for i in range(8) if h.repeatAlternative & (1 << i)})
-        for voice in m.voices:
-            for beat in voice.beats:
-                t = (beat.start - origin) / q
-                dur = beat.duration.time / q
-                chord = getattr(beat.effect, "chord", None)
-                if chord is not None and chord.name:
-                    meas.chords.append((t, chord.name))
-                for n in beat.notes:
-                    kind = n.type.name
-                    if kind in ("rest", "dead"):
-                        continue
-                    finger = None
-                    lhf = getattr(n.effect, "leftHandFinger", None)
-                    if lhf is not None and lhf.value >= -1:
-                        finger = max(0, lhf.value) if lhf.value <= 4 else None
-                    note = Note(t=t, dur=dur, midi=n.realValue, string=n.string,
-                                fret=n.value, finger=finger)
-                    if kind == "tie":
-                        note.tie = True
-                    meas.notes.append(note)
+        _gp_measure_notes(m, meas, origin, q)
+        if not meas.notes:
+            for other in others:
+                if i < len(other.measures):
+                    _gp_measure_notes(other.measures[i], meas, origin, q)
+                    if meas.notes:
+                        filled[other.name.strip()] = filled.get(other.name.strip(), 0) + 1
+                        break
         score.measures.append(meas)
+    for name, bars in filled.items():
+        score.warnings.append(f"{bars} bar(s) where this guitar is silent were filled from '{name}'; "
+                              "set \"fillGaps\": false in the .json file to leave them empty")
     return score
+
+
+def _gp_measure_notes(m, meas, origin, q):
+    """Adds the notes and chord names of Guitar Pro measure m to meas."""
+    for voice in m.voices:
+        for beat in voice.beats:
+            t = (beat.start - origin) / q
+            dur = beat.duration.time / q
+            chord = getattr(beat.effect, "chord", None)
+            if chord is not None and chord.name:
+                meas.chords.append((t, chord.name))
+            for n in beat.notes:
+                kind = n.type.name
+                if kind in ("rest", "dead"):
+                    continue
+                finger = None
+                lhf = getattr(n.effect, "leftHandFinger", None)
+                if lhf is not None and lhf.value >= -1:
+                    finger = max(0, lhf.value) if lhf.value <= 4 else None
+                note = Note(t=t, dur=dur, midi=n.realValue, string=n.string,
+                            fret=n.value, finger=finger)
+                if kind == "tie":
+                    note.tie = True
+                meas.notes.append(note)
 
 
 def _gp_note_count(track):
@@ -805,7 +833,7 @@ def convert(path, meta):
     ext = os.path.splitext(path)[1].lower()
     track_no = meta.get("track")
     if ext in (".gp3", ".gp4", ".gp5"):
-        score = read_guitar_pro(path, track_no)
+        score = read_guitar_pro(path, track_no, meta.get("fillGaps", True))
     else:
         score = read_musicxml(path, track_no)
     warnings = score.warnings

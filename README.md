@@ -79,6 +79,7 @@ optional:
 - `track`: which track or part to use, counting from 1.
 - `tempo`: beats per minute, if the score has none or it is wrong.
 - `guessChords`: `true` to guess chords from the notes when the file has no chord names.
+- `fillGaps`: `false` to leave bars empty where the chosen guitar is silent. By default those bars (an intro or a solo played by another guitar) are filled from the other guitar tracks.
 - `replace`: `true` lets an imported song overwrite a hand-made song with the same id.
 
 To check an import on your own computer: `pip install pyguitarpro==0.11`, then
