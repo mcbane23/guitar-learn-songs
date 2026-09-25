@@ -28,6 +28,20 @@
       "tags": [],
       "version": 1,
       "importedFrom": "import/extra/metallica-nothing_else_matters.gp3"
+    },
+    {
+      "id": "war-pigs",
+      "file": "war-pigs.json",
+      "title": {
+        "en": "War Pigs",
+        "sr": "War Pigs"
+      },
+      "artist": "Black Sabbath",
+      "language": "instrumental",
+      "difficulty": "hard",
+      "tags": [],
+      "version": 1,
+      "importedFrom": "import/extra/black_sabbath-war_pigs_3.gp3"
     }
   ]
 }
