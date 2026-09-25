@@ -102,15 +102,21 @@ def read_guitar_pro(path, track_no):
             raise ImportError_(f"track {track_no} does not exist, the file has {len(song.tracks)}")
         track = song.tracks[track_no - 1]
     else:
-        six = [t for t in tracks if len(t.strings) == 6]
+        six = [t for t in tracks if len(t.strings) == 6 and not re.search(r"voice|vocal|voc|bass|drum|perc", t.name, re.I)]
+        six = six or [t for t in tracks if len(t.strings) == 6]
         if not six:
             raise ImportError_("no 6-string guitar track found")
-        track = six[0]
+        # Songs often have a short intro track first; take the guitar that plays the most.
+        track = max(six, key=_gp_note_count)
     if len(track.strings) != 6:
         raise ImportError_(f"track '{track.name}' has {len(track.strings)} strings, the app needs 6")
 
     score = Score(title=song.title or "", artist=song.artist or "", tempo=song.tempo or 0,
                   capo=track.offset or 0)
+    if len(song.tracks) > 1:
+        names = ", ".join(f"{i + 1} {t.name.strip()}" for i, t in enumerate(song.tracks))
+        score.warnings.append(f"used track {song.tracks.index(track) + 1} ({track.name.strip()}) of: {names}; "
+                              "set \"track\" in the .json file to pick another")
     strings = sorted(track.strings, key=lambda s: s.number)
     score.tuning = [s.value for s in strings]
 
@@ -146,6 +152,10 @@ def read_guitar_pro(path, track_no):
                     meas.notes.append(note)
         score.measures.append(meas)
     return score
+
+
+def _gp_note_count(track):
+    return sum(len(b.notes) for m in track.measures for v in m.voices for b in v.beats)
 
 
 # ------------------------------------------------------------------ MusicXML
