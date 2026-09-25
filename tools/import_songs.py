@@ -16,11 +16,11 @@ does not know, for example:
 
   {"id": "moja-pesma", "title": {"en": "My Song", "sr": "Moja pesma"},
    "artist": "Traditional", "difficulty": "easy", "tags": ["serbian-folk"],
-   "source": "Traditional Serbian", "track": 1, "tempo": 90}
+   "source": "Traditional Serbian", "track": 1, "tempo": 90, "guessChords": false}
 
 The "full" track is the guitar part note by note. The "easy" track is one
-chord strum per beat; chord names come from the score when it has them,
-otherwise they are worked out from the notes in each bar.
+chord strum per beat, made only when the score names its chords (or when the
+sidecar sets "guessChords": true, which works them out from the notes).
 """
 
 import itertools
@@ -854,7 +854,14 @@ def convert(path, meta):
         bars.append({"start": s, "end": e,
                      "chords": [(t / unit, c) for t, c in chords if s - 1e-6 <= t / unit < e - 1e-6]})
     library = load_chords()
-    easy = build_easy(bars, unit_notes, library, unit, bpb, warnings)
+    # Chords guessed from the notes are often wrong, so only files that name
+    # their chords get an easy track, unless the .json file asks for a guess.
+    if chords or meta.get("guessChords"):
+        easy = build_easy(bars, unit_notes, library, unit, bpb, warnings)
+    else:
+        easy = []
+        warnings.append("the file has no chord names, so the song has no chord (easy) mode; "
+                        "set \"guessChords\": true in the .json file to guess them from the notes")
     # The app wants songs to end on a bar line; keep strumming the last chord.
     bar_end = -(-round(end_beats, 4) // bpb) * bpb
     b = max((e["beat"] + e["length"] for e in easy), default=bar_end)

@@ -50,12 +50,13 @@ def main():
             err(where, "id in the file does not match index.json")
         full = song.get("tracks", {}).get("full", [])
         easy = song.get("tracks", {}).get("easy", [])
-        if not full or not easy:
-            err(where, "needs both a full and an easy track")
+        if not full:
+            err(where, "needs a full (note by note) track")
             continue
         bpb = song.get("beatsPerBar") or song["timeSignature"][0]
         end = max(ev["beat"] + ev.get("length", 1) for ev in full + easy)
-        if abs(end / bpb - round(end / bpb)) > 1e-3:
+        # With chords the song ends on a bar line; a notes-only song ends on its last note.
+        if easy and abs(end / bpb - round(end / bpb)) > 1e-3:
             err(where, f"song should end on a bar line (ends at beat {end}, {bpb} beats per bar)")
         for ev in full:
             if not 1 <= ev["string"] <= 6 or not 0 <= ev["fret"] <= 12 or not 0 <= ev.get("finger", 0) <= 4:

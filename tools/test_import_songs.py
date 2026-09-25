@@ -205,6 +205,8 @@ def main():
         song_nc["tracks"]["easy"] = []
         write_gp5(song_nc, gp_path)
         warnings, got = imp.convert(gp_path, {})
+        good &= check(f"{song_id} without chord names has no chord mode", got["tracks"]["easy"] == [])
+        warnings, got = imp.convert(gp_path, {"guessChords": True})
         good &= check(f"{song_id} guessed chords exist",
                       bool(got["tracks"]["easy"]) and all(e["chord"] in imp.load_chords() for e in got["tracks"]["easy"]))
         print("     guessed:", " ".join(_runs([e["chord"] for e in got["tracks"]["easy"]])[:12]))
