@@ -43,6 +43,17 @@ What the importer does:
   tab or "guitar" in its name (MusicXML); set `track` to choose another.
 - Difficulty is estimated from how fast the notes go and how high they are.
 
+### Songs that are not public domain
+
+Put those files in `import/extra/` instead. They go to a separate catalog in
+`extra/`, published at https://mcbane23.github.io/guitar-learn-songs/extra/,
+which the app does not load by default. To see them, add that link in the
+app under **Settings > Song sources**. Note that this repository and its site
+are public, so anyone can still download these files.
+
+Deleting a score file (or moving it to the other folder) removes its song on
+the next push.
+
 ### The optional .json file
 
 `import/My Song.gp5` can have `import/My Song.json` next to it. Every field is

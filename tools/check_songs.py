@@ -12,36 +12,20 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-def main():
-    errors = []
-
-    def err(where, msg):
-        errors.append(f"{where}: {msg}")
-
-    with open(os.path.join(ROOT, "chords.json"), encoding="utf-8") as f:
-        chords = json.load(f)["chords"]
-    for name, shape in chords.items():
-        if len(shape["frets"]) != 6 or len(shape["fingers"]) != 6:
-            err(f"chord {name}", "needs 6 frets and 6 fingers")
-        elif all(fr < 0 for fr in shape["frets"]):
-            err(f"chord {name}", "plays no strings")
-        else:
-            for fr, fi in zip(shape["frets"], shape["fingers"]):
-                if fr > 0 and not 1 <= fi <= 4:
-                    err(f"chord {name}", "a pressed string needs finger 1-4")
-
-    with open(os.path.join(ROOT, "index.json"), encoding="utf-8") as f:
+def check_catalog(folder, chords, err):
+    """Checks one catalog folder (index.json plus its song files)."""
+    with open(os.path.join(folder, "index.json"), encoding="utf-8") as f:
         index = json.load(f)
     ids = set()
     for e in index["songs"]:
-        where = e.get("file", e.get("id"))
+        where = os.path.relpath(os.path.join(folder, e.get("file", e["id"])), ROOT)
         if e["id"] in ids:
             err(where, f"id '{e['id']}' is listed twice")
         ids.add(e["id"])
         if not e.get("title", {}).get("en") or not e.get("title", {}).get("sr"):
             err(where, "needs an English and a Serbian title")
         try:
-            with open(os.path.join(ROOT, e["file"]), encoding="utf-8") as f:
+            with open(os.path.join(folder, e["file"]), encoding="utf-8") as f:
                 song = json.load(f)
         except (OSError, ValueError) as ex:
             err(where, f"cannot read: {ex}")
@@ -69,9 +53,35 @@ def main():
             if ev["chord"] not in chords:
                 err(where, f"chord {ev['chord']} is missing from chords.json")
 
+    return len(index["songs"])
+
+
+def main():
+    errors = []
+
+    def err(where, msg):
+        errors.append(f"{where}: {msg}")
+
+    with open(os.path.join(ROOT, "chords.json"), encoding="utf-8") as f:
+        chords = json.load(f)["chords"]
+    for name, shape in chords.items():
+        if len(shape["frets"]) != 6 or len(shape["fingers"]) != 6:
+            err(f"chord {name}", "needs 6 frets and 6 fingers")
+        elif all(fr < 0 for fr in shape["frets"]):
+            err(f"chord {name}", "plays no strings")
+        else:
+            for fr, fi in zip(shape["frets"], shape["fingers"]):
+                if fr > 0 and not 1 <= fi <= 4:
+                    err(f"chord {name}", "a pressed string needs finger 1-4")
+
+    total = 0
+    for folder in (ROOT, os.path.join(ROOT, "extra")):
+        if os.path.exists(os.path.join(folder, "index.json")):
+            total += check_catalog(folder, chords, err)
+
     for line in errors:
         print("ERROR", line)
-    print(f"{len(index['songs'])} songs checked, {len(errors)} problem(s)")
+    print(f"{total} songs checked, {len(errors)} problem(s)")
     return 1 if errors else 0
 
 

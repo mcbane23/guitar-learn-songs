@@ -35,6 +35,13 @@ from dataclasses import dataclass, field
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMPORT_DIR = os.path.join(ROOT, "import")
+# Catalogs: (score folder, folder the song files and index.json go to).
+# Songs that are not public domain go in import/extra/; they are published
+# at .../extra/ and are not in the app's built-in song list.
+CATALOGS = [
+    (IMPORT_DIR, ROOT),
+    (os.path.join(IMPORT_DIR, "extra"), os.path.join(ROOT, "extra")),
+]
 SCORE_EXTS = (".gp3", ".gp4", ".gp5", ".musicxml", ".xml", ".mxl")
 MAX_FRET = 12  # the app's neck shows frets 0-12
 
@@ -891,7 +898,7 @@ def convert(path, meta):
         "id": song_id,
         "title": title,
         "artist": meta.get("artist") or score.artist or "Traditional",
-        "license": meta.get("license", "public-domain"),
+        "license": meta.get("license") or ("public-domain" if catalog_for(path) == ROOT else "copyrighted"),
         "source": meta.get("source") or f"Imported from {os.path.basename(path)}",
         "language": meta.get("language", "instrumental"),
         "difficulty": meta.get("difficulty") or difficulty,
@@ -920,7 +927,7 @@ def dump_song(song):
     return text + ',\n  "tracks": {\n' + ",\n".join(parts) + "\n  }\n}\n"
 
 
-def import_file(path, index, report):
+def import_file(path, out_root, index, report):
     rel = os.path.relpath(path, ROOT).replace(os.sep, "/")
     sidecar = os.path.splitext(path)[0] + ".json"
     meta = {}
@@ -944,11 +951,11 @@ def import_file(path, index, report):
                                "in the sidecar file, or \"replace\": true to overwrite it")
         mine = same_id
     if mine is not None and mine["id"] != song["id"]:
-        old_file = os.path.join(ROOT, mine["file"])
+        old_file = os.path.join(out_root, mine["file"])
         if os.path.exists(old_file):
             os.remove(old_file)
 
-    out = os.path.join(ROOT, f"{song['id']}.json")
+    out = os.path.join(out_root, f"{song['id']}.json")
     text = dump_song(song)
     old = None
     if mine is not None and os.path.exists(out):
@@ -959,6 +966,7 @@ def import_file(path, index, report):
     if mine is not None and changed:
         version += 1
     if changed:
+        os.makedirs(out_root, exist_ok=True)
         with open(out, "w", encoding="utf-8") as f:
             f.write(text)
 
@@ -972,28 +980,56 @@ def import_file(path, index, report):
     else:
         entries.append(entry)
     status = "added" if mine is None else "updated" if changed else "unchanged"
-    report.append({"file": rel, "id": song["id"], "status": status, "version": version,
+    report.append({"file": rel, "id": os.path.relpath(out, ROOT)[:-5].replace(os.sep, "/"), "status": status, "version": version,
                    "notes": len(song["tracks"]["full"]), "strums": len(song["tracks"]["easy"]),
                    "difficulty": song["difficulty"], "warnings": warnings})
     return song
 
 
+def catalog_for(path):
+    folder = os.path.dirname(os.path.abspath(path))
+    for score_dir, out_root in CATALOGS:
+        if folder == os.path.abspath(score_dir):
+            return out_root
+    return ROOT
+
+
+def load_index(out_root):
+    path = os.path.join(out_root, "index.json")
+    if not os.path.exists(path):
+        return {"version": 1, "songs": []}
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_index(out_root, index):
+    os.makedirs(out_root, exist_ok=True)
+    with open(os.path.join(out_root, "index.json"), "w", encoding="utf-8") as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
+
 def main(argv):
     if argv:
         files = argv
-    elif os.path.isdir(IMPORT_DIR):
-        files = sorted(os.path.join(IMPORT_DIR, f) for f in os.listdir(IMPORT_DIR))
     else:
         files = []
-    index_path = os.path.join(ROOT, "index.json")
-    with open(index_path, encoding="utf-8") as f:
-        index = json.load(f)
+        for score_dir, _ in CATALOGS:
+            if os.path.isdir(score_dir):
+                files += sorted(os.path.join(score_dir, f) for f in os.listdir(score_dir)
+                                if os.path.isfile(os.path.join(score_dir, f)))
+    indexes = {}
 
-    report, failures = [], []
+    def index_of(out_root):
+        if out_root not in indexes:
+            indexes[out_root] = load_index(out_root)
+        return indexes[out_root]
+
+    report, failures, removed = [], [], []
     for path in files:
-        name = os.path.basename(path)
+        name = os.path.relpath(path, IMPORT_DIR).replace(os.sep, "/")
         ext = os.path.splitext(name)[1].lower()
-        if name.startswith(".") or name.lower() == "readme.md":
+        if os.path.basename(name).startswith(".") or os.path.basename(name).lower() == "readme.md":
             continue
         if ext == ".json":
             stem = os.path.splitext(path)[0]
@@ -1012,24 +1048,39 @@ def main(argv):
             failures.append((name, f"unsupported file type '{ext}'; use .gp3/.gp4/.gp5 or MusicXML"))
             continue
         try:
-            import_file(path, index, report)
+            import_file(path, catalog_for(path), index_of(catalog_for(path)), report)
         except ImportError_ as e:
             failures.append((name, str(e)))
         except Exception as e:  # a bug or a very unusual file; report it and go on
             failures.append((name, f"unexpected error: {type(e).__name__}: {e}"))
 
-    with open(index_path, "w", encoding="utf-8") as f:
-        json.dump(index, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+    if not argv:
+        # A score file that was deleted or moved to another folder takes its song with it.
+        for _, out_root in CATALOGS:
+            index = index_of(out_root)
+            gone = [e for e in index["songs"]
+                    if e.get("importedFrom") and not os.path.exists(os.path.join(ROOT, e["importedFrom"]))]
+            index["songs"] = [e for e in index["songs"] if e not in gone]
+            for e in gone:
+                song_file = os.path.join(out_root, e["file"])
+                if os.path.exists(song_file) and all(k["file"] != e["file"] for k in index["songs"]):
+                    os.remove(song_file)
+                removed.append((e["importedFrom"], os.path.relpath(song_file, ROOT).replace(os.sep, "/")))
+
+    for out_root, index in indexes.items():
+        if index["songs"] or os.path.exists(os.path.join(out_root, "index.json")):
+            save_index(out_root, index)
 
     lines = ["## Song import", ""]
-    if not report and not failures:
+    if not report and not failures and not removed:
         lines.append("No files in `import/`.")
     for r in report:
         lines.append(f"- ✅ `{r['file']}` → `{r['id']}.json`: {r['status']} (version {r['version']}, "
                      f"{r['notes']} notes, {r['strums']} strums, {r['difficulty']})")
         for w in r["warnings"]:
             lines.append(f"  - ⚠️ {w}")
+    for src, song_file in removed:
+        lines.append(f"- 🗑️ `{src}` is gone, so `{song_file}` was removed")
     for name, msg in failures:
         lines.append(f"- ❌ `{name}`: {msg}")
     text = "\n".join(lines) + "\n"
