@@ -10,9 +10,9 @@
       },
       "artist": "Metallica",
       "language": "instrumental",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "tags": [],
-      "version": 1,
+      "version": 2,
       "importedFrom": "import/extra/metallica-enter_sandman.gp3"
     },
     {
@@ -26,7 +26,7 @@
       "language": "instrumental",
       "difficulty": "hard",
       "tags": [],
-      "version": 1,
+      "version": 2,
       "importedFrom": "import/extra/metallica-nothing_else_matters.gp3"
     },
     {
