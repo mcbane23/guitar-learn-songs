@@ -45,11 +45,11 @@ What the importer does:
 
 ### Songs that are not public domain
 
-Put those files in `import/extra/` instead. They go to a separate catalog in
-`extra/`, published at https://mcbane23.github.io/guitar-learn-songs/extra/,
-which the app does not load by default. To see them, add that link in the
-app under **Settings > Song sources**. Note that this repository and its site
-are public, so anyone can still download these files.
+Do not add them here. This repository and its site are public, so anything in
+it, including `import/extra/` and `extra/`, can be downloaded by anyone. To
+play a copyrighted tab yourself, open the file in the app with **Add songs**:
+it stays on your device. The `extra/` catalog is kept, empty, so the app's
+**Settings > Song sources** example still works. See `COPYRIGHT.md`.
 
 Deleting a score file (or moving it to the other folder) removes its song on
 the next push.

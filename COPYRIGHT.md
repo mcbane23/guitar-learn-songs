@@ -38,12 +38,14 @@ moderni aranžman ili tab nije preuzet. Srpski nazivi su naši prevodi.
 | Lightly Row (Hänschen klein) | nemačka narodna, tekst 1860 | |
 | Alle meine Entchen | nemačka narodna dečja | |
 
-## Sporno: katalog `extra/` (nije slobodan)
+## Uklonjeno: katalog `extra/`
 
-`extra/` (Metallica: Enter Sandman, Nothing Else Matters; Black Sabbath: War
-Pigs) i originalni `.gp3` fajlovi u `import/extra/` su pod autorskim pravima.
-Aplikacija ih ne prikazuje sama od sebe, ali repo i GitHub Pages su javni, pa
-svako može da ih preuzme. To je deljenje tuđeg dela bez dozvole.
+Metallica (Enter Sandman, Nothing Else Matters) i Black Sabbath (War Pigs) su
+pod autorskim pravima, a repo i GitHub Pages su javni. Po Baneovoj odluci
+(6. 11. 2026.) uklonjeni su iz `import/extra/` i `extra/`. Za lično
+testiranje takve fajlove otvori u aplikaciji preko **Add songs**: ostaju samo
+na tvom uređaju i ništa se ne objavljuje. U ovaj repo ne stavljati pesme koje
+nisu slobodne.
 
 ## Pesme koje izgledaju narodno, a nisu slobodne (ne dodavati)
 
