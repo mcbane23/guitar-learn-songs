@@ -376,6 +376,148 @@
         "classical"
       ],
       "version": 1
+    },
+    {
+      "id": "brahms-lullaby",
+      "file": "brahms-lullaby.json",
+      "title": {
+        "en": "Brahms' Lullaby (Cradle Song)",
+        "sr": "Bramsova uspavanka"
+      },
+      "artist": "Johannes Brahms",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "classical",
+        "kids"
+      ],
+      "version": 1
+    },
+    {
+      "id": "oh-susanna",
+      "file": "oh-susanna.json",
+      "title": {
+        "en": "Oh! Susanna",
+        "sr": "O, Suzana"
+      },
+      "artist": "Stephen Foster",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "folk",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "o-christmas-tree",
+      "file": "o-christmas-tree.json",
+      "title": {
+        "en": "O Christmas Tree (O Tannenbaum)",
+        "sr": "O jelko (O Tannenbaum)"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "holidays",
+        "kids"
+      ],
+      "version": 1
+    },
+    {
+      "id": "deck-the-halls",
+      "file": "deck-the-halls.json",
+      "title": {
+        "en": "Deck the Halls",
+        "sr": "Okitite dvorane"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "holidays",
+        "kids"
+      ],
+      "version": 1
+    },
+    {
+      "id": "korobeiniki",
+      "file": "korobeiniki.json",
+      "title": {
+        "en": "Korobeiniki (The Peddlers)",
+        "sr": "Korobejnici"
+      },
+      "artist": "Traditional Russian",
+      "language": "instrumental",
+      "difficulty": "medium",
+      "tags": [
+        "folk"
+      ],
+      "version": 1
+    },
+    {
+      "id": "new-world-largo",
+      "file": "new-world-largo.json",
+      "title": {
+        "en": "Largo from the New World Symphony",
+        "sr": "Largo iz Novog sveta"
+      },
+      "artist": "Antonín Dvořák",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "classical",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "good-king-wenceslas",
+      "file": "good-king-wenceslas.json",
+      "title": {
+        "en": "Good King Wenceslas",
+        "sr": "Dobri kralj Vaclav"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "holidays"
+      ],
+      "version": 1
+    },
+    {
+      "id": "lightly-row",
+      "file": "lightly-row.json",
+      "title": {
+        "en": "Lightly Row (Hänschen klein)",
+        "sr": "Lagano veslaj (Mali Hans)"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
+    },
+    {
+      "id": "all-my-little-ducklings",
+      "file": "all-my-little-ducklings.json",
+      "title": {
+        "en": "All My Little Ducklings (Alle meine Entchen)",
+        "sr": "Sve moje patkice"
+      },
+      "artist": "Traditional",
+      "language": "instrumental",
+      "difficulty": "easy",
+      "tags": [
+        "kids",
+        "beginner"
+      ],
+      "version": 1
     }
   ]
 }
